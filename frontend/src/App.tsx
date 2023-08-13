@@ -6,10 +6,10 @@ import Contact from './Components/Contact';
 
 import './App.css';
 
-const MOBILE_WIDTH = 850;
-export const SCROLL_CHANGE_POSITION = document.documentElement.clientHeight - 50;
-
 function App() {
+  const MOBILE_WIDTH = 850;
+  const SCROLL_CHANGE_POSITION = window.innerHeight - 50;
+
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header isMobile={isMobile} scrollPosition={scrollPosition} />
+      <Header isMobile={isMobile} scrollPosition={scrollPosition} scrollChangePosition={SCROLL_CHANGE_POSITION} />
       <About isMobile={isMobile} />
       <Reader />
       <Contact />

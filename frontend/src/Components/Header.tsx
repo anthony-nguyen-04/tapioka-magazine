@@ -14,7 +14,6 @@ import HomeBG from "../Assets/images/homebg.jpg";
 import TapiokaLogo from "../Assets/images/tapioka.png";
 
 import { pagesValues } from "./HeaderPages";
-import { SCROLL_CHANGE_POSITION } from "../App";
 
 import styled from "@emotion/styled";
 
@@ -61,11 +60,12 @@ const colorHeaderTheme = createTheme(
 
 type Props = {
   isMobile: boolean,
-  scrollPosition: number
+  scrollPosition: number,
+  scrollChangePosition: number,
 }
 
 const Header = ({
-  isMobile, scrollPosition  
+  isMobile, scrollPosition, scrollChangePosition  
 }: Props) => {
   const [toggleDrawer, setToggleDrawer] = useState<boolean>(false);
   
@@ -136,7 +136,7 @@ const Header = ({
       <ThemeProvider theme={colorHeaderTheme}>
         <AppBar
           position="fixed"
-          color={scrollPosition < SCROLL_CHANGE_POSITION ? "transparent" : "primary"}
+          color={scrollPosition < scrollChangePosition ? "transparent" : "primary"}
           elevation={0}
         >
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
