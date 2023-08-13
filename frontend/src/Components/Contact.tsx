@@ -102,7 +102,9 @@ const Contact = () => {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": url,
+        "Access-Control-Allow-Credentials": "true"
       },
       body: JSON.stringify({
         name,
