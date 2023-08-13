@@ -7,7 +7,7 @@ import Contact from './Components/Contact';
 import './App.css';
 
 const MOBILE_WIDTH = 850;
-export const SCROLL_CHANGE_POSITION = document.documentElement.clientHeight;
+export const SCROLL_CHANGE_POSITION = document.documentElement.clientHeight - 50;
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
