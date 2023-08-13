@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import About from "./Components/About";
-import Reader from './Components/Reader';
-import Contact from './Components/Contact';
+import Reader from "./Components/Reader";
+import Contact from "./Components/Contact";
+import ImageBlock from "./Components/ImageBlock";
 
-import './App.css';
+import imageBlockPicture from "./Assets/images/imageBlock.png";
+
+import "./App.css";
 
 function App() {
   const MOBILE_WIDTH = 850;
@@ -43,6 +46,7 @@ function App() {
       <Header isMobile={isMobile} scrollPosition={scrollPosition} scrollChangePosition={SCROLL_CHANGE_POSITION} />
       <About isMobile={isMobile} />
       <Reader />
+      <ImageBlock imageURL={imageBlockPicture} height="60vh"/>
       <Contact />
     </div>
   );

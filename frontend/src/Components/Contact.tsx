@@ -14,8 +14,8 @@ import styled from "@emotion/styled";
 
 const ContactContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
-  background-color: #1F271B;
+  min-height: 75vh;
+  background-color: #D3D3D3;
 
   display: flex;
   gap: 1rem;
@@ -25,13 +25,14 @@ const ContactContainer = styled.div`
   align-items: center;
 
   padding-top: 1rem;
+  box-sizing: border-box;
 `;
 
 const FormContainer = styled.div`
   width: 90%;
   max-width: 900px;
   height: fit-content;
-  background-color: #D3D3D3;
+  background-color: #FFF;
 
   display: flex;
   flex-direction: column;
@@ -50,7 +51,7 @@ const FormContainer = styled.div`
 
 const FooterContainer = styled.section`
   width: 100%;
-  background-color: #1F271B;
+  //background-color: #1F271B;
 
   display: flex;
   gap: 1rem;
@@ -70,7 +71,7 @@ const colorFooterTheme = createTheme(
   {
     palette: {
       primary: {
-        main: "#D3D3D3"
+        main: "#353535"
       },
     },
   }
@@ -179,7 +180,7 @@ const Contact = () => {
             sx={{
               mt: 2,
               backgroundColor: "#1F271B;",
-              color: "#D3D3D3",
+              color: "#EEE",
               "&:hover": {
                 backgroundColor: "#111",
               },
