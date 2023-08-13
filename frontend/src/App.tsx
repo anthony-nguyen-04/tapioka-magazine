@@ -14,6 +14,7 @@ function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
+    handleWindowSizeChange();
     window.addEventListener("resize", handleWindowSizeChange);
 
     return () => {
@@ -22,6 +23,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
