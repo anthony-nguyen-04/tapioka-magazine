@@ -28,9 +28,10 @@ const port = Number(process.env.PORT) || 3001;
 
 const app = express();
 
-app.use(cors({
-  origin: allowedOrigins
-}));
+// app.use(cors({
+//   origin: allowedOrigins
+// }));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
