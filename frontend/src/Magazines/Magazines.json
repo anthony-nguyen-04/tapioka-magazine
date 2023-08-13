@@ -1,0 +1,65 @@
+[
+  {
+    "name": "RETRO",
+    "id": 1,
+    "published": "2022/09/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_1_ef367615910149",
+    "thumbnail": "sept22.png"
+  },
+  {
+    "name": "CULTURE",
+    "id": 2,
+    "published": "2022/10/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_2",
+    "thumbnail": "oct22.png"
+  },
+  {
+    "name": "EVOLUTION",
+    "id": 3,
+    "published": "2022/11/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_3",
+    "thumbnail": "nov22.png"
+  },
+  {
+    "name": "CONNECTION",
+    "id": 4,
+    "published": "2022/12/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_4",
+    "thumbnail": "dec22.png"
+  },
+  {
+    "name": "RENEWAL",
+    "id": 5,
+    "published": "2023/01/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_5",
+    "thumbnail": "jan23.png"
+  },
+  {
+    "name": "REBELLION",
+    "id": 6,
+    "published": "2023/02/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_6",
+    "thumbnail": "feb23.png"
+  },
+  {
+    "name": "PASSION",
+    "id": 7,
+    "published": "2023/03/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_7",
+    "thumbnail": "mar23.png"
+  },
+  {
+    "name": "TRAUMA",
+    "id": 8,
+    "published": "2023/04/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_8",
+    "thumbnail": "apr23.png"
+  },
+  {
+    "name": "ACCEPTANCE",
+    "id": 9,
+    "published": "2023/05/01",
+    "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_9",
+    "thumbnail": "may23.png"
+  }
+]
