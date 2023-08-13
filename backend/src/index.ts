@@ -68,7 +68,4 @@ app.post("/email", async (req: IEmailRequest, res: Response) => {
 
 app.get("/*", (req, res) => res.type('html').send(html));
 
-app.listen(port, () => {
-  console.log("RUNNING");
-  console.log(process.env.RESEND_API_KEY);
-});
+app.listen(port, () => {console.log("RUNNING")});
