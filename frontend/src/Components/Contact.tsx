@@ -94,6 +94,8 @@ const Contact = () => {
   }
 
   async function handleSubmit(e : any)  {
+    const url = "https://tapiokamagazine-api.onrender.com";
+
     e.preventDefault();
     
     const requestOptions = {
@@ -110,7 +112,7 @@ const Contact = () => {
       })
     };
 
-    await fetch("http://localhost:3001/email", requestOptions)
+    await fetch(`${url}/email`, requestOptions)
       .then((res) => {
         setAlertOpen(true)  
       });
@@ -126,7 +128,7 @@ const Contact = () => {
     <ContactContainer id="contact" >
       <FormContainer>
         <ThemeProvider theme={fontTheme}>
-          <Typography variant="h3" align="center" mb={1}>
+          <Typography variant="h3" align="center" mb={2}>
             Contact Us
           </Typography>
           <Typography variant="body1" sx={{ textAlign: "justify" }}>

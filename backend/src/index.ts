@@ -3,11 +3,13 @@ import { Resend } from "resend";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
+// import { fileURLToPath } from "url";
+// import path, { dirname } from "path";
+import { allowedOrigins } from "./allowedOrigins.js";
+import { html } from "./html.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 interface IEmailRequestBody {
   name: string,
@@ -26,11 +28,13 @@ const port = Number(process.env.PORT) || 3001;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static("../frontend/build"));
+//app.use(express.static("../frontend/build"));
 
 app.post("/email", async (req: IEmailRequest, res: Response) => {
   try {
@@ -57,8 +61,10 @@ app.post("/email", async (req: IEmailRequest, res: Response) => {
   }
 });
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "..", "frontend", "build", "index.html"));
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "..", "frontend", "build", "index.html"));
+// });
+
+app.get("/*", (req, res) => res.type('html').send(html));
 
 app.listen(port, () => {console.log("RUNNING")});

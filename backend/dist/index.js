@@ -2,18 +2,20 @@ import express from "express";
 import { Resend } from "resend";
 import dotenv from "dotenv";
 import cors from "cors";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// import { fileURLToPath } from "url";
+// import path, { dirname } from "path";
+import { allowedOrigins } from "./allowedOrigins.js";
+import { html } from "./html.js";
 dotenv.config();
 const resend = new Resend(process.env.RESEND_API_KEY);
 const port = Number(process.env.PORT) || 3001;
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: allowedOrigins
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static("../frontend/build"));
+//app.use(express.static("../frontend/build"));
 app.post("/email", async (req, res) => {
     try {
         const name = req.body.name;
@@ -36,8 +38,9 @@ app.post("/email", async (req, res) => {
         res.status(500).send({ error });
     }
 });
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "..", "frontend", "build", "index.html"));
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "..", "frontend", "build", "index.html"));
+// });
+app.get("/*", (req, res) => res.type('html').send(html));
 app.listen(port, () => { console.log("RUNNING"); });
 //# sourceMappingURL=index.js.map
