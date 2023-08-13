@@ -52,7 +52,7 @@ const colorHeaderTheme = createTheme(
   {
     palette: {
       primary: {
-        main: "#E35239AA" //"#dd7d6c"
+        main: "#DD7D6C" //"#E35239AA" 
       },
     },
   }
