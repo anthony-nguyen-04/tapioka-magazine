@@ -121,7 +121,7 @@ const Reader = () => {
           allow="clipboard-write"
           sandbox="allow-top-navigation allow-top-navigation-by-user-activation allow-downloads allow-scripts allow-same-origin allow-popups allow-modals allow-popups-to-escape-sandbox allow-forms"
           allowFullScreen={true}
-          style={{ width: "100%", height: "70%", minHeight: "60vh", marginTop: "1rem" }}
+          style={{ width: "100%", height: "70%", minHeight: "70vh", marginTop: "1rem" }}
           src={setMagazineEmbedLink(currentMagID)}>
         </iframe>
       </MagazineContainer>
