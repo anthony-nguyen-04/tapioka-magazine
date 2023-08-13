@@ -10,11 +10,10 @@ function App() {
   const MOBILE_WIDTH = 850;
   const SCROLL_CHANGE_POSITION = window.innerHeight - 50;
 
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= MOBILE_WIDTH);
+  const [scrollPosition, setScrollPosition] = useState(window.scrollY);
 
   useEffect(() => {
-    handleWindowSizeChange();
     window.addEventListener("resize", handleWindowSizeChange);
 
     return () => {
@@ -23,7 +22,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
