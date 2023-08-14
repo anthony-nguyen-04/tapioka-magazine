@@ -21,7 +21,7 @@ const HeaderContainer = styled.div`
   background-image: url(${HomeBG});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: left center;
   width: 100%;
   height: 100vh;
 `;
@@ -140,12 +140,14 @@ const Header = ({
           elevation={0}
         >
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box
-              component="img"
-              sx={{ height: 48 }}
-              alt="Tapioka Logo"
-              src={TapiokaLogo}
-            />
+            <a href="#home">
+              <Box
+                component="img"
+                sx={{ height: 48 }}
+                alt="Tapioka Logo"
+                src={TapiokaLogo}
+              />
+            </a>
             { 
             isMobile
               && renderMenuMobile()
