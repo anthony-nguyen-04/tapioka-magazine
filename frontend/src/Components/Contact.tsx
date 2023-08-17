@@ -56,7 +56,7 @@ const FooterContainer = styled.section`
   display: flex;
   gap: 1rem;
 
-  justify-content: right;
+  justify-content: space-between;
 `;
 
 const fontTheme = createTheme({
@@ -191,14 +191,35 @@ const Contact = () => {
         </form>
       </FormContainer>
       <FooterContainer>
-        <ThemeProvider theme={colorFooterTheme}>
-          <IconButton aria-label="email" href="mailto: ouaasa.magazine@gmail.com">
-            <EmailIcon fontSize="large" color="primary"/>
-          </IconButton>
-          <IconButton aria-label="instagram" onClick={() => window.open("https://www.instagram.com/tapioka.mag/", "_blank")}>
-            <InstagramIcon fontSize="large" color="primary"/>
-          </IconButton>
-        </ThemeProvider>
+        <Button
+          fullWidth
+          type="submit"
+          size="large"
+          onClick={() => window.open("https://account.venmo.com/pay?recipients=ouaasa", "_blank")}
+          sx={{
+            backgroundColor: "#353535",
+            color: "#EEE",
+            "&:hover": {
+              backgroundColor: "#111",
+            },
+            width: "10%",
+            minWidth: "150px",
+            margin: "0.5rem",
+            boxSizing: "border-box"
+          }}
+        >
+          Support Us!
+        </Button>
+        <span>
+          <ThemeProvider theme={colorFooterTheme}>
+            <IconButton aria-label="email" href="mailto: ouaasa.magazine@gmail.com">
+              <EmailIcon fontSize="large" color="primary"/>
+            </IconButton>
+            <IconButton aria-label="instagram" onClick={() => window.open("https://www.instagram.com/tapioka.mag/", "_blank")}>
+              <InstagramIcon fontSize="large" color="primary"/>
+            </IconButton>
+          </ThemeProvider>
+        </span>
       </FooterContainer>
       <Snackbar
         open={alertOpen}
