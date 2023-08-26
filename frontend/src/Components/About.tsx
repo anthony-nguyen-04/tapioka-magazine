@@ -1,6 +1,7 @@
 import React from "react";
 
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material";
 
@@ -110,6 +111,26 @@ const About = ({
             From {bold("PASSION")} to {bold("TRAUMA")} and {bold("ACCEPTANCE")}, here is our story.
           </Typography>
           {newLine()}
+          {newLine()}
+          <Button
+            fullWidth
+            type="submit"
+            size="large"
+            onClick={() => window.open("https://ou.campuslabs.com/engage/submitter/form/start/593118", "_blank")}
+            sx={{
+              backgroundColor: "#353535",
+              color: "#EEE",
+              "&:hover": {
+                backgroundColor: "#111",
+              },
+              width: "15%",
+              minWidth: "200px",
+              margin: "0.5rem",
+              boxSizing: "border-box"
+            }}
+          >
+            Apply To Our Team
+          </Button>
         </TextContainer>
       </ThemeProvider>
       <ImageContainer>
