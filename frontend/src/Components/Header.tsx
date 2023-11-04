@@ -10,18 +10,20 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material";
 
-import HomeBG from "../Assets/images/homebg.jpg";
+//import HomeBG from "../Assets/images/homebg.jpg";
+import HomeBGNew from "../Assets/images/homebg_new.jpg";
 import TapiokaLogo from "../Assets/images/tapioka.png";
 
 import { pagesValues } from "./HeaderPages";
 
 import styled from "@emotion/styled";
 
+// modify background-position to shift mobile-view around
 const HeaderContainer = styled.div`
-  background-image: url(${HomeBG});
+  background-image: url(${HomeBGNew});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left center;
+  background-position: 60% center;
   width: 100%;
   height: 100vh;
 `;
