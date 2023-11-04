@@ -4,62 +4,79 @@
     "id": 1,
     "published": "2022/09/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_1_ef367615910149",
-    "thumbnail": "sept22.png"
+    "thumbnail": "sept22.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_1_ef367615910149&u=ouaasa"
   },
   {
     "name": "CULTURE",
     "id": 2,
     "published": "2022/10/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_2",
-    "thumbnail": "oct22.png"
+    "thumbnail": "oct22.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_2&u=ouaasa"
   },
   {
     "name": "EVOLUTION",
     "id": 3,
     "published": "2022/11/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_3",
-    "thumbnail": "nov22.png"
+    "thumbnail": "nov22.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_3&u=ouaasa"
   },
   {
     "name": "CONNECTION",
     "id": 4,
     "published": "2022/12/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_4",
-    "thumbnail": "dec22.png"
+    "thumbnail": "dec22.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_4&u=ouaasa"
   },
   {
     "name": "RENEWAL",
     "id": 5,
     "published": "2023/01/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_5",
-    "thumbnail": "jan23.png"
+    "thumbnail": "jan23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_5&u=ouaasa"
   },
   {
     "name": "REBELLION",
     "id": 6,
     "published": "2023/02/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_6",
-    "thumbnail": "feb23.png"
+    "thumbnail": "feb23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_6&u=ouaasa"
   },
   {
     "name": "PASSION",
     "id": 7,
     "published": "2023/03/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_7",
-    "thumbnail": "mar23.png"
+    "thumbnail": "mar23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_7&u=ouaasa"
   },
   {
     "name": "TRAUMA",
     "id": 8,
     "published": "2023/04/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_8",
-    "thumbnail": "apr23.png"
+    "thumbnail": "apr23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_8&u=ouaasa"
   },
   {
     "name": "ACCEPTANCE",
     "id": 9,
     "published": "2023/05/01",
     "url": "https://issuu.com/ouaasa/docs/aasa_2022-2023_volume_9",
-    "thumbnail": "may23.png"
+    "thumbnail": "may23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=aasa_2022-2023_volume_9&u=ouaasa"
+  },
+  {
+    "name": "JOY",
+    "id": 10,
+    "published": "2023/09/06",
+    "url": "https://issuu.com/ouaasa/docs/tapioka_summer_2023",
+    "thumbnail": "summer23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=tapioka_summer_2023&u=ouaasa"
   }
 ]

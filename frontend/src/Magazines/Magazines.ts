@@ -5,7 +5,8 @@ export interface Magazine {
   id: number,
   published: string,
   url: string,
-  thumbnail: string
+  thumbnail: string,
+  embedurl: string
 }
 
 export const allMagazines : Magazine[] = magazines;
@@ -33,12 +34,5 @@ export function getMagazineByID(id: number) : Magazine {
 }
 
 export function setMagazineEmbedLink(id: number) : string {
-  function getIssuuExtension() : string {
-    const EXTENSION_BREAKPOINT = "/docs/";
-
-    return (getMagazineByID(id).url).split(EXTENSION_BREAKPOINT)[1];
-  }
-
-  return `https://e.issuu.com/embed.html?d=${getIssuuExtension()}&u=ouaasa`;
-  //return `https://e.issuu.com/embed.html?d=${getIssuuExtension()}${isMobile ? "&pageLayout=singlePage" : ""}&u=ouaasa`;
-} 
+  return (getMagazineByID(id).embedurl);
+}
