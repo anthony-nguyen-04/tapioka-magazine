@@ -34,7 +34,7 @@ const HeaderTextContainer = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 75%;
+  min-height: 90%;
   width: 100%;
   overflow-wrap: anywhere;
 `;
@@ -179,7 +179,7 @@ const Header = ({
               color="#eee"
               textAlign="center"
               fontWeight={400}
-              variant={isMobile ? "caption" : "h6"}
+              variant={isMobile ? "caption" : "h5"}
             >
               Oklahoma's first APIDA-MENA culture publication
             </Typography>
