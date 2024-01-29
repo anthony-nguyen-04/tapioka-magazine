@@ -78,5 +78,13 @@
     "url": "https://issuu.com/ouaasa/docs/tapioka_summer_2023",
     "thumbnail": "summer23.png",
     "embedurl": "https://e.issuu.com/embed.html?d=tapioka_summer_2023&u=ouaasa"
+  },
+  {
+    "name": "HOME",
+    "id": 11,
+    "published": "2024/01/24",
+    "url": "https://issuu.com/ouaasa/docs/tapioka_fall_2023",
+    "thumbnail": "fall23.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=tapioka_fall_2023&u=ouaasa"
   }
 ]
