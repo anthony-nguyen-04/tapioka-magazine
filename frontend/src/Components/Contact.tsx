@@ -15,7 +15,7 @@ import styled from "@emotion/styled";
 const ContactContainer = styled.div`
   width: 100%;
   min-height: 75vh;
-  background-color: #D3D3D3;
+  background-color: #FAF4EA;
 
   display: flex;
   gap: 1rem;

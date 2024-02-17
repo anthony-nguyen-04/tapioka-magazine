@@ -12,7 +12,7 @@ import styled from "@emotion/styled";
 const AboutContainer = styled.div<AboutContainerProps>`
   width: 100%;
   min-height: 100vh;
-  background-color: #D3D3D3;
+  background-color: #FAF4EA;
 
   display: flex;
   flex-direction: ${(props) => props.isMobile ? "column" : "row"};

@@ -15,7 +15,7 @@ import styled from "@emotion/styled";
 const ReaderContainer = styled.div`
   width: 100%;
   min-height: 125vh;
-  background-color: #D3D3D3;
+  background-color: #FAF4EA;
 
   display: flex;
   flex-direction: column;
