@@ -86,5 +86,13 @@
     "url": "https://issuu.com/ouaasa/docs/tapioka_fall_2023",
     "thumbnail": "fall23.png",
     "embedurl": "https://e.issuu.com/embed.html?d=tapioka_fall_2023&u=ouaasa"
+  },
+  {
+    "name": "ECLIPSE",
+    "id": 12,
+    "published": "2024/05/01",
+    "url": "https://issuu.com/ouaasa/docs/tapioka_spring_2024",
+    "thumbnail": "spring24.png",
+    "embedurl": "https://e.issuu.com/embed.html?d=tapioka_spring_2024&u=ouaasa"
   }
 ]
