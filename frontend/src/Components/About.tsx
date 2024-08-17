@@ -127,7 +127,7 @@ const About = ({
           {newLine()}
           <Typography style={{ display: "inline-block" }} variant="h6">
             Through written and creative media, we hope to highlight Oklahoma's APIDA-MENA community and celebrate the rich heritage and history that comes with it.
-            Three times a year, our team comes together to craft a cohesive issue, diving deep into a particular aspect of our identity.
+            Twice a year, our team comes together to craft a cohesive issue, diving deep into a particular aspect of our identity.
             From {bold("PASSION")} to {bold("TRAUMA")} and {bold("ACCEPTANCE")}, here is our story.
           </Typography>
           {newLine()}
