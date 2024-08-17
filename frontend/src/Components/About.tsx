@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -67,12 +67,32 @@ type AboutContainerProps = {
 
 type Props = {
   isMobile: boolean
-}  
+}
+
+type appOpenData = {
+  isOpen: boolean,
+  appURL: string
+}
 
 const About = ({
   isMobile
 }: Props) => {
-  
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [appURL, setAppURL] = useState<string>("");
+
+  useEffect(() => {
+    async function fetchApplicationOpenStatus() {
+      let response : any = await fetch(`${process.env.REACT_APP_API_URL}/appOpen`);
+      response = await response.json();
+      response = response.data;
+
+      setIsOpen(response.isOpen);
+      setAppURL(response.appURL);
+    }
+
+    fetchApplicationOpenStatus();
+  }, []);
+
   function bold(text: string) : React.JSX.Element {
     return (
       <Box display="inline" fontWeight={600}>
@@ -112,25 +132,31 @@ const About = ({
           </Typography>
           {newLine()}
           {newLine()}
-          <Button
-            fullWidth
-            type="submit"
-            size="large"
-            onClick={() => window.open("https://ou.campuslabs.com/engage/submitter/form/start/593118", "_blank")}
-            sx={{
-              backgroundColor: "#353535",
-              color: "#EEE",
-              "&:hover": {
-                backgroundColor: "#111",
-              },
-              width: "15%",
-              minWidth: "200px",
-              margin: "0.5rem",
-              boxSizing: "border-box"
-            }}
-          >
-            Apply To Our Team
-          </Button>
+          {
+            isOpen
+            &&
+            (
+              <Button
+                fullWidth
+                type="submit"
+                size="large"
+                onClick={() => window.open(appURL, "_blank")}
+                sx={{
+                  backgroundColor: "#353535",
+                  color: "#EEE",
+                  "&:hover": {
+                    backgroundColor: "#111",
+                  },
+                  width: "15%",
+                  minWidth: "200px",
+                  margin: "0.5rem",
+                  boxSizing: "border-box"
+                }}
+              >
+                Apply To Our Team
+              </Button>
+            )
+          }
         </TextContainer>
       </ThemeProvider>
       <ImageContainer>

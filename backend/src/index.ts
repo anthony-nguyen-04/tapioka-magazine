@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { Resend } from "resend";
+import { MongoClient, ServerApiVersion  } from "mongodb"
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -22,15 +23,71 @@ interface IEmailRequest extends Request {
   body: IEmailRequestBody
 }
 
+interface ApplicationOpenBody {
+  isOpen: boolean,
+  appURL: string
+}
+
+interface Magazine {
+  name: string,
+  id: number,
+  published: string,
+  url: string,
+  thumbnailurl: string,
+  embedurl: string
+}
+
+interface MagazineRequest extends Request {
+  id: number
+}
+
+async function checkAppOpen (client : MongoClient) {
+  await client.connect();
+
+  const result = await client.db("magazine").collection("applicationOpen").findOne()
+
+  return result;
+}
+
+async function getAllMagazines (client : MongoClient) {
+  await client.connect();
+
+  const result = await client.db("magazine").collection("magazine").find({})
+
+  const resultArray = await result.toArray();
+
+  return resultArray;
+}
+
+async function getNewestMagazineID (client : MongoClient) {
+  await client.connect();
+
+  const result = await client.db("magazine").collection("magazine").find({}).sort({published:-1}).limit(1)
+  const resultArray = await result.toArray()
+
+  const id = resultArray[0].id;
+
+  return id;
+}
+
 dotenv.config();
 const resend = new Resend(process.env.RESEND_API_KEY);
 const port = Number(process.env.PORT) || 3001;
+
+const mongoClient = new MongoClient(process.env.MONGODB_CONN_STRING, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
 const app = express();
 
 // app.use(cors({
 //   origin: allowedOrigins
 // }));
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -55,6 +112,48 @@ app.post("/email", async (req: IEmailRequest, res: Response) => {
         <strong> MESSAGE: ${message}</strong> <br/>
         `
     });
+
+    res.status(200).send({data});
+  } catch (error) {
+    res.status(500).send({error});
+  }
+});
+
+app.get("/appOpen", async (req, res: Response) => {
+  try {
+    const result = await checkAppOpen(mongoClient);
+
+    const isOpen = result.isOpen;
+    const appURL = result.appURL;
+
+    const data = {
+      isOpen,
+      appURL
+    };
+
+    res.status(200).send({data});
+  } catch (error) {
+    res.status(500).send({error});
+  }
+});
+
+app.get("/magazines", async (req, res: Response) => {
+  try {
+    const data = await getAllMagazines(mongoClient);
+
+    res.status(200).send({data});
+  } catch (error) {
+    res.status(500).send({error});
+  }
+});
+
+app.get("/magazines/newest", async (req, res: Response) => {
+  try {
+    const id = await getNewestMagazineID(mongoClient);
+
+    const data = {
+      id
+    };
 
     res.status(200).send({data});
   } catch (error) {

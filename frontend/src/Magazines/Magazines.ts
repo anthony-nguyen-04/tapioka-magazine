@@ -1,38 +1,50 @@
-import magazines from "./Magazines.json";
-
 export interface Magazine {
   name: string,
   id: number,
   published: string,
   url: string,
-  thumbnail: string,
+  thumbnailurl: string,
   embedurl: string
 }
 
-export const allMagazines : Magazine[] = magazines;
+export async function getAllMagazines() {
+  let response : any = await fetch(`${process.env.REACT_APP_API_URL}/magazines`);
+  response = await response.json();
+  response = response.data;
 
-export function getNewestMagazineID() : number {
-  function compareDates(a: Magazine, b: Magazine) : number {
-    const dateA = new Date(a.published);
-    const dateB = new Date(b.published);
-    
-    if (dateA > dateB) {
-      return -1;
-    } else if (dateA < dateB) {
-      return 1
-    }
-
-    return 0;
-  }
-
-  const sortedMagazines = [...allMagazines].sort(compareDates);
-  return sortedMagazines[0].id;
+  return response;
 }
 
-export function getMagazineByID(id: number) : Magazine {
+export async function getNewestMagazineID() {
+  let response : any = await fetch(`${process.env.REACT_APP_API_URL}/magazines/newest`);
+  response = await response.json();
+  response = response.data;
+
+  const id = response.id;
+
+  return id;
+}
+
+export function getMagazineByID(id: number, allMagazines : Magazine[]) : Magazine {
   return (allMagazines.filter((magazine) => (id === magazine.id))[0]);
 }
 
-export function setMagazineEmbedLink(id: number) : string {
-  return (getMagazineByID(id).embedurl);
-}
+export function setMagazineThumbnailURL(thumbnail_url : string) : string {
+  const base_url = "https://drive.google.com/thumbnail?id=";
+
+  function getThumbnailImageID() : string {
+    const BEFORE_ID_TEXT = "/d/";
+    const AFTER_ID_TEXT = "/view";
+
+    const imageID = thumbnail_url.substring(
+      thumbnail_url.indexOf(BEFORE_ID_TEXT) + BEFORE_ID_TEXT.length, 
+      thumbnail_url.lastIndexOf(AFTER_ID_TEXT)
+    );
+
+    return (imageID);
+  }
+
+  return (`${base_url}`+`${getThumbnailImageID()}`);
+};
+
+

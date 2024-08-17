@@ -95,8 +95,6 @@ const Contact = () => {
   }
 
   async function handleSubmit(e : any)  {
-    const url = "https://tapiokamagazine-api.onrender.com";
-
     e.preventDefault();
     
     const requestOptions = {
@@ -104,7 +102,7 @@ const Contact = () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": url,
+        "Access-Control-Allow-Origin": `${process.env.REACT_APP_API_URL}`,
         "Access-Control-Allow-Credentials": "true"
       },
       body: JSON.stringify({
@@ -115,7 +113,7 @@ const Contact = () => {
       })
     };
 
-    await fetch(`${url}/email`, requestOptions)
+    await fetch(`${process.env.REACT_APP_API_URL}/email`, requestOptions)
       .then((res) => {
         setAlertOpen(true)  
       });
