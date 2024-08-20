@@ -12,6 +12,8 @@ import "swiper/css/navigation";
 
 import styled from "@emotion/styled";
 
+import "./styles.css";
+
 const ReaderContainer = styled.div`
   width: 100%;
   min-height: 125vh;
