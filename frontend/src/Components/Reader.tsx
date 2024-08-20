@@ -4,10 +4,11 @@ import { createTheme, ThemeProvider } from '@mui/material';
 
 import { Magazine, getAllMagazines, getMagazineByID, getNewestMagazineID, setMagazineThumbnailURL } from "../Magazines/Magazines";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import "./styles.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 import styled from "@emotion/styled";
 
@@ -53,7 +54,6 @@ const MagazineCarouselContainer = styled.section`
   margin-right: auto;
   margin-bottom: 1rem;
   background-color: #353535;
-
 `;
 
 const fontTheme = createTheme({
@@ -84,53 +84,13 @@ const Reader = () => {
     fetchMagazines();
     fetchNewestMagazineID();
   }, []);
-
-  console.log(allMagazines)
-
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4.67,
-    slidesToScroll: 1,
-    draggable: false,
-    adaptiveHeight: true,
-    focusOnSelect: true,
-    centerMode: true,
-    centerPadding: "1rem",
-    responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 3.5,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 2.3,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1.3,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
     
   return (
     <ReaderContainer id="read">
       <ThemeProvider theme={fontTheme}>
         <TitleContainer>
           <Typography variant="h2" fontWeight={600}>
-            {(allMagazines.length !== 0) ? getMagazineByID(currentMagID, allMagazines).name : ""}
+            {(allMagazines.length !== 0) ? getMagazineByID(currentMagID, allMagazines).name : "LOADING..."}
           </Typography>
         </TitleContainer>
       </ThemeProvider>
@@ -145,19 +105,61 @@ const Reader = () => {
         </iframe>
       </MagazineContainer>
       <MagazineCarouselContainer>
-        <Slider {...sliderSettings}>
-          {
-            allMagazines.map((magazine) => (
-              <React.Fragment key={magazine.id}>
-                <img
-                  src={setMagazineThumbnailURL(magazine.thumbnailurl)}
-                  alt={magazine.name}
-                  onClick={() => setCurrentMagID(magazine.id)}
-                />
-              </React.Fragment>
-            ))
-          }
-        </Slider>
+        {
+          (allMagazines.length !== 0)
+          &&
+          (
+            <Swiper
+              initialSlide={allMagazines.length - 1}
+              slidesPerView={"auto"}
+              spaceBetween={10}
+              speed={500}
+              navigation  
+              centeredSlides
+              grabCursor
+              watchSlidesProgress
+              observer
+              observeParents
+              breakpoints={{
+                300: {
+                  slidesPerView: 1.3,
+                  spaceBetween: 10,
+                },
+                550: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                700: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+                1000: {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                },
+                1400: {
+                  slidesPerView: 4.5,
+                  spaceBetween: 10,
+                },
+              }}
+              modules={[ Navigation ]}        
+              className="magazineSwiper"
+            >
+              {
+                allMagazines.map((magazine) => (
+                  <SwiperSlide key={magazine.id}>
+                    <img
+                      src={setMagazineThumbnailURL(magazine.thumbnailurl)}
+                      alt={magazine.name}
+                      onClick={() => setCurrentMagID(magazine.id)}
+                      style={{ marginTop: "4px" }}
+                    />
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+          )
+        }
       </MagazineCarouselContainer>
     </ReaderContainer> 
   );

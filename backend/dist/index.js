@@ -22,11 +22,6 @@ async function getNewestMagazineID(client) {
     const id = resultArray[0].id;
     return id;
 }
-async function getMagazineByID(client, id) {
-    await client.connect();
-    const result = await client.db("magazine").collection("magazine").findOne({ "id": id });
-    return result;
-}
 dotenv.config();
 const resend = new Resend(process.env.RESEND_API_KEY);
 const port = Number(process.env.PORT) || 3001;
@@ -97,16 +92,6 @@ app.get("/magazines/newest", async (req, res) => {
         const data = {
             id
         };
-        res.status(200).send({ data });
-    }
-    catch (error) {
-        res.status(500).send({ error });
-    }
-});
-app.post("/magazines/find", async (req, res) => {
-    try {
-        const id = req.body.id;
-        const data = await getMagazineByID(mongoClient, id);
         res.status(200).send({ data });
     }
     catch (error) {
