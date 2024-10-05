@@ -52,10 +52,10 @@ async function checkAppOpen (client : MongoClient) {
 async function getAllMagazines (client : MongoClient) {
   await client.connect();
 
-  const result = await client.db("magazine").collection("magazine").find({})
+  const result = await client.db("magazine").collection("magazine").find({}).sort({id:1})
 
   const resultArray = await result.toArray();
-
+  
   return resultArray;
 }
 
