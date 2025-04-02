@@ -193,7 +193,7 @@ const Contact = () => {
           fullWidth
           type="submit"
           size="large"
-          onClick={() => window.open("https://account.venmo.com/pay?recipients=ouaasa", "_blank")}
+          onClick={() => window.open("https://account.venmo.com/pay?recipients=ouaasa&note=Donation%20for%20TAPIOKA", "_blank")}
           sx={{
             backgroundColor: "#353535",
             color: "#EEE",
